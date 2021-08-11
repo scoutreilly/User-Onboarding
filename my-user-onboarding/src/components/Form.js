@@ -39,6 +39,7 @@ function Form(props) {
             name="username"
             onChange={onChange}
           />
+          <StyledP>{props.errors.username}</StyledP>
         </StyledLabel>
         <StyledLabel>
           Email ~
@@ -48,6 +49,7 @@ function Form(props) {
             name="email"
             onChange={onChange}
           />
+          <StyledP>{props.errors.email}</StyledP>
         </StyledLabel>
         <StyledLabel>
           Password ~
@@ -57,6 +59,7 @@ function Form(props) {
             name="password"
             onChange={onChange}
           />
+          <StyledP>{props.errors.password}</StyledP>
         </StyledLabel>
         <StyledP>
           Terms of service state you must like cats in order to proceed.
@@ -69,6 +72,7 @@ function Form(props) {
             name="terms"
             onChange={onChange}
           />
+          <StyledP>{props.errors.terms}</StyledP>
         </StyledLabel>
         <StyledButton disabled={props.disabled}>Submit</StyledButton>
       </form>

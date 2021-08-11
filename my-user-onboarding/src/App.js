@@ -57,12 +57,14 @@ function App() {
           ...formErrors,
           [name]: "",
         });
+        setDisabled(false);
       })
       .catch((e) => {
         setFormErrors({
           ...formErrors,
           [name]: e.message,
         });
+        setDisabled(true);
       });
     setFormValues({
       ...formValues,
