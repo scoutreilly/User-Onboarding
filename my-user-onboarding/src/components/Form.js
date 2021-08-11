@@ -1,28 +1,76 @@
 import StyledDiv from "./StyledForm";
 import StyledLabel from "./StyledLabel";
 import StyledButton from "./StyledButton";
+import styled from "styled-components";
 
-function Form() {
+const StyledHeader = styled.h1`
+  color: #0a0f2c;
+`;
+
+const StyledP = styled.p`
+  color: #0a0f2c;
+  font-style: italic;
+`;
+function Form(props) {
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log("submitted");
+    props.submit();
+  };
+  const onChange = (e) => {
+    const { checked, name, type, value } = e.target;
+    if (type === "checkbox") {
+      props.change(name, checked);
+    } else {
+      props.change(name, value);
+    }
+    console.log("this is changing");
+  };
+
   return (
     <StyledDiv>
-      <form>
+      <form onSubmit={onSubmit}>
+        <StyledHeader>Add a new user!</StyledHeader>
         <StyledLabel>
           Name ~
-          <input type="text" />
+          <input
+            type="text"
+            value={props.values.username}
+            name="username"
+            onChange={onChange}
+          />
         </StyledLabel>
         <StyledLabel>
           Email ~
-          <input type="email" />
+          <input
+            type="email"
+            value={props.values.email}
+            name="email"
+            onChange={onChange}
+          />
         </StyledLabel>
         <StyledLabel>
           Password ~
-          <input type="text" />
+          <input
+            type="text"
+            value={props.values.password}
+            name="password"
+            onChange={onChange}
+          />
         </StyledLabel>
+        <StyledP>
+          Terms of service state you must like cats in order to proceed.
+        </StyledP>
         <StyledLabel>
           Terms of Service ~
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked={props.values.terms}
+            name="terms"
+            onChange={onChange}
+          />
         </StyledLabel>
-        <StyledButton>Submit</StyledButton>
+        <StyledButton disabled={props.disabled}>Submit</StyledButton>
       </form>
     </StyledDiv>
   );
