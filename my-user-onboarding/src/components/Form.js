@@ -31,7 +31,7 @@ function Form(props) {
     <StyledDiv>
       <form onSubmit={onSubmit}>
         <StyledHeader>Add a new user!</StyledHeader>
-        <StyledLabel>
+        <StyledLabel id="name">
           Name ~
           <input
             type="text"
@@ -41,7 +41,7 @@ function Form(props) {
           />
           <StyledP>{props.errors.username}</StyledP>
         </StyledLabel>
-        <StyledLabel>
+        <StyledLabel id="email">
           Email ~
           <input
             type="email"
@@ -51,7 +51,7 @@ function Form(props) {
           />
           <StyledP>{props.errors.email}</StyledP>
         </StyledLabel>
-        <StyledLabel>
+        <StyledLabel id="password">
           Password ~
           <input
             type="text"
@@ -64,7 +64,7 @@ function Form(props) {
         <StyledP>
           Terms of service state you must like cats in order to proceed.
         </StyledP>
-        <StyledLabel>
+        <StyledLabel id="checkbox">
           Terms of Service ~
           <input
             type="checkbox"
